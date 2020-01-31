@@ -12,7 +12,7 @@ function generate_checkout_info() {
         var username = results.name.first + '.' + results.name.last;
         var base_email = jQuery('#pmprogci-base-email').val();
         var at_index = base_email.indexOf("@");
-        var user_email = base_email.substring(0, at_index-1) + '+' + username + base_email.substring(at_index);
+        var user_email = base_email.substring(0, at_index) + '+' + username + base_email.substring(at_index);
         
         jQuery('#username').val( username );
         jQuery('#password').val( username );
