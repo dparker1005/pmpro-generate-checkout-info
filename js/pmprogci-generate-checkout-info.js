@@ -21,7 +21,7 @@ function generate_checkout_info() {
         jQuery('#bconfirmemail').val( user_email );
         jQuery('#bfirstname').val( results.name.first );
         jQuery('#blastname').val( results.name.last );
-        jQuery('#baddress1').val( results.location.street );
+        jQuery('#baddress1').val( results.location.street.number  + ' ' +  results.location.street.name );
         jQuery('#bcity').val( results.location.city );
         jQuery('#bstate').val( results.location.state );
         jQuery('#bzipcode').val( results.location.postcode );
