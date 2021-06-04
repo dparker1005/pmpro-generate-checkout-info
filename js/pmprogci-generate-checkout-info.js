@@ -19,6 +19,8 @@ function generate_checkout_info() {
         jQuery('#password2').val( username );
         jQuery('#bemail').val( user_email );
         jQuery('#bconfirmemail').val( user_email );
+        jQuery('#first_name').val( results.name.first );
+        jQuery('#last_name').val( results.name.last );
         jQuery('#bfirstname').val( results.name.first );
         jQuery('#blastname').val( results.name.last );
         jQuery('#baddress1').val( results.location.street.number  + ' ' +  results.location.street.name );
