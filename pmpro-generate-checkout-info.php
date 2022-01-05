@@ -2,6 +2,7 @@
 /**
  * Plugin Name: PMPro Generate Checkout Info
  * Description: Quickly fill out checkout information for a test user
+ * Version .1.1
  * Author: David Parker
  */
 
