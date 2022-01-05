@@ -33,12 +33,16 @@ function pmprogci_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'pmprogci_enqueue_scripts' );
 
 function pmprogci_create_button() {
+	// Set base email
+	$pmprogci_base_email = apply_filters( 'pmprogci_base_email', get_option( 'admin_email' ) );
+
+	// Validate base email
+	$pmprogci_base_email = is_email( $pmprogci_base_email ) ? sanitize_email( $pmprogci_base_email ) : get_option( 'admin_email' );
 	?>
 		<hr/>
-		Base email for generating new user: 
-		<input type="text" id="pmprogci-base-email" value="<?php echo( get_option('admin_email') ) ?>"><br>
+		Base email for generating new user:
+		<input type="text" id="pmprogci-base-email" value="<?php echo $pmprogci_base_email; ?>"><br>
 		<button id='pmprogci-generate' type="button">Generate New User</button>
-		
 	<?php
 }
 add_action( 'pmpro_checkout_after_pricing_fields', 'pmprogci_create_button' );
