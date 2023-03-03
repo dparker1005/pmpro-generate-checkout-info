@@ -7,13 +7,14 @@ function generate_checkout_info() {
       dataType: 'json',
       success: function(data) {
         var results = data['results'][0];
-        
+
         // Generate email address
         var username = results.name.first + '.' + results.name.last;
         var base_email = jQuery('#pmprogci-base-email').val();
         var at_index = base_email.indexOf("@");
-        var user_email = base_email.substring(0, at_index) + '+' + username + base_email.substring(at_index);
-        
+        var email_prefix = base_email.substring(0, at_index).length > 0 ? base_email.substring(0, at_index) + '+' : '';
+        var user_email = email_prefix + username + base_email.substring(at_index);
+
         jQuery('#username').val( username );
         jQuery('#password').val( username );
         jQuery('#password2').val( username );
